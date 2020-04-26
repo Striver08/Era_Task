@@ -83,7 +83,7 @@ def info(num,dob):
             for j in arr:
                 dictionary[arr[i]] = arr[i+1]  
         arr.clear()
-        for info in table1.findAll('td'):
+        for info in table1.findAll('td'):           #Here,The text is appended in the array and then added to dictionary for all the 3 tables.
             #print(info.text)
             arr.append(info.text)
         for i in range(0,len(arr),3):
@@ -97,7 +97,7 @@ def info(num,dob):
             for j in arr:
                 dictionary[arr[i]] = [arr[i+1], arr[i+2]]
     except:
-        print("Make sure DL no. and DOB are correct")
+        print("Make sure DL no. and DOB are correct")       #If error occurs, It prints this message.
         
     with open('data.json', 'w+') as file:       #The dictionary is exported to the JSON file.
         json.dump(dictionary,file)
@@ -106,6 +106,9 @@ def info(num,dob):
         data = json.load(file)
 
     print(data)
+
+def get_captcha():
+    pass
 
 if __name__ == '__main__':
     info()
